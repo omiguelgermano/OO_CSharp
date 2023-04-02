@@ -1,8 +1,17 @@
-﻿using System;
+﻿using CursoCSharp.OO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+////  HERENÇA:
+//Up - Herança, sobrescrevendo e ocultando método.	
+//Sobrescrever um método: Sobrescreve o método em qlqr novo objeto instânciado, mantendo o novo valor ou função do método para esta determinada classe.
+//	operadores -> override, abstrat, virtual
+
+//Ocultar um método: atribui apenas ao obejto instânciado, não sendo replicado para todos os outros objetos, pois foi alterado apenas 'nesta' instância e não em todos as outras, a novas instâncias voltam a receber o valor do método principal (PAI).
+//	operador(opcional) - new
 
 namespace CursoCSharp.OO {
 
