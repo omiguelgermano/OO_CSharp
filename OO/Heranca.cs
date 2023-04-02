@@ -30,7 +30,7 @@ namespace CursoCSharp.OO {
         }
 
         // Método Acelerar 
-        public int Acelerar() {
+        public virtual int Acelerar() { // corrigindo o erro Error CS0506, para alterar o metodo Acelerar na class Ferrari
             return AlterarVelocidade(5); // acrescenta 5
         }
 
@@ -42,7 +42,7 @@ namespace CursoCSharp.OO {
 
     public class Uno : Carro { // Uno HERDA os atribuitos de CARRO, por isso se utiliza os ' : ' (dois pontos)
         public Uno() : base(150) { //Construtor base, declaração do parametro para o contrutor herado
-
+                       // construtor base obrigatório por não ter construtor padrão declarado.
         }
     }
 
@@ -50,6 +50,12 @@ namespace CursoCSharp.OO {
         public Ferrari() : base(350) {
 
         }
+
+        public override int Acelerar() { // o operador 'override' trabalha em conjunto com o 'virtual' p Sobrescrevendo um metodo Acelerar da classe pai
+            return AlterarVelocidade(15);
+        }
+
+        public new int Frear() => AlterarVelocidade(-15); // o operador 'new' permite ocultar o método da classe Pai
     }
 
     internal class Heranca {
@@ -75,6 +81,23 @@ namespace CursoCSharp.OO {
             Console.WriteLine("FREAR...");
             Console.WriteLine(carro2.Frear());
             Console.WriteLine(carro2.Frear());
+
+            Console.WriteLine("Ferrari com tipo Carro de variavel...");
+            Carro carro3 = new Ferrari(); // Class Carro mais generica
+            Console.WriteLine(carro3.Acelerar());
+            Console.WriteLine(carro3.Acelerar());
+            Console.WriteLine(carro3.Frear());
+            Console.WriteLine(carro3.Frear());
+            Console.WriteLine(carro3.Frear());
+
+            Console.WriteLine("Uno com tipo Carro de variavel...");
+            carro3 = new Uno(); // Polimorfismo
+            Console.WriteLine(carro3.Acelerar());
+            Console.WriteLine(carro3.Acelerar());
+            Console.WriteLine(carro3.Frear());
+            Console.WriteLine(carro3.Frear());
+            Console.WriteLine(carro3.Frear());
+
         }
     }
 }
